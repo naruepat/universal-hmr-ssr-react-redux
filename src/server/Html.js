@@ -8,7 +8,8 @@ class Html extends Component {
     store: PropTypes.object.isRequired,
     title: PropTypes.string.isRequired,
     assets: PropTypes.object,
-    renderProps: PropTypes.object
+    renderProps: PropTypes.object,
+    meta: PropTypes.object,
   }
 
   render () {
@@ -18,7 +19,8 @@ class Html extends Component {
       title,
       store,
       assets,
-      renderProps
+      renderProps,
+      meta,
     } = this.props;
 
     const {
@@ -53,7 +55,7 @@ class Html extends Component {
          <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet" />
           <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet" />
 
-         <title>{title}</title>
+         {meta}
        </head>
        <body>
          <script dangerouslySetInnerHTML={{__html: initialState}} />

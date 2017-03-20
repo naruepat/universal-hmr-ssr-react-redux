@@ -1,12 +1,26 @@
 import React, {Component, PropTypes} from 'react';
 import {Link} from 'react-router';
+import DocumentMeta from 'react-document-meta';
 
 import styles from './Home.css';
 
 class Home extends Component {
   render () {
+    const meta = {
+      title: 'Home',
+      description: 'I am a description, and I can create multiple tags',
+      canonical: 'http://example.com/path/to/page',
+      meta: {
+        charset: 'utf-8',
+        name: {
+          keywords: 'react,meta,document,html,tags'
+        }
+      }
+    };
+    
     return (
       <div className={styles.home}>
+        <DocumentMeta {...meta} />
         <h1 className={styles.title}>⚡ Universal JS, HMR and SSR ⚡</h1>
 
         <div>

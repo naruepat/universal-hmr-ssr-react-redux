@@ -4,7 +4,7 @@ import {match} from 'react-router';
 import {renderToStaticMarkup} from 'react-dom-stream/server';
 import fs from 'fs';
 import {join, basename} from 'path';
-
+import DocumentMeta from 'react-document-meta';
 
 import Html from './Html';
 import createStore from '../universal/redux/createStore';
@@ -20,10 +20,11 @@ function renderApp(res, store, assets, renderProps) {
    *
    * see https://facebook.github.io/react/warnings/dont-call-proptypes.html
    **/
-
+  
+  const meta = DocumentMeta.renderAsHTML();
   const htmlStream = renderToStaticMarkup(
     <Html
-      title="HMR | SSR | FTW"
+      meta={meta}
       store={store}
       assets={assets}
       renderProps={renderProps}

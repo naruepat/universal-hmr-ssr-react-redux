@@ -6,13 +6,12 @@ import {
   decrementCount
 } from 'universal/modules/counter/ducks/counter';
 
-
 @connect(mapStateToProps, mapDispatchToProps)
 class CounterContainer extends Component {
   static propTypes = {
     // State
     count: PropTypes.number.isRequired,
-
+    
     // Dispatchers
     incrementCount: PropTypes.func.isRequired,
     decrementCount: PropTypes.func.isRequired
@@ -31,7 +30,8 @@ class CounterContainer extends Component {
 function mapStateToProps(state, props) {
   const auth = state.get('counter');
   return {
-    count: auth.get('count')
+    count: auth.get('count'),
+    title: "test title"
   };
 }
 
